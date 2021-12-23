@@ -38,6 +38,9 @@ const MorseCodeAlphabet = {
     ".": "·-·-·-",
     ",": "--··--",
     "?": "··--··",
+
+    //Special Characters
+    "SOS": "···−−−···"
 };
 
 export default MorseCodeAlphabet;

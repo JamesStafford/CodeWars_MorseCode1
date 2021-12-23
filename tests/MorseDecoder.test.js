@@ -20,13 +20,13 @@ describe("For Morse Decoder, ", () => {
         })
     });
 
+    test("decode parses 'SOS' in Morse", () => {
+        expect(decode("···−−−···")).toBe("SOS")
+    });
+
     /*
     test("decode parses 'HEY JUDE' in Morse", () => {
         expect(decode(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE")
-    });
-
-    test("decode parses 'SOS' in Morse", () => {
-        expect(decode("···−−−···")).toBe("SOS")
     });
      */
 });
