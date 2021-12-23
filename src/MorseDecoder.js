@@ -1,14 +1,10 @@
 import MorseCodeAlphabet from "../data/MorseCodeAlphabet";
 
-export function decode(morse_code) {
-    if (!morse_code) {
+export function decode(morseCode) {
+    if (!morseCode) {
         return "";
     }
-    if (morse_code === '·−') {
-        return "A"
-    } else if (morse_code === '−−·−') {
-        return "Q"
-    }
+    return getEnglishForMorse(morseCode);
 }
 
 export function getEnglishForMorse(morseCharacter) {
