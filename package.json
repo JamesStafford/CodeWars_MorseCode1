@@ -2,9 +2,14 @@
   "name": "morse_code_1",
   "version": "1.0.0",
   "dependencies": {
-    "jest": "27.4.5"
+    "jest": "27.4.5",
+    "babel-jest": "27.4.5",
+    "@babel/preset-env": "7.16.5"
   },
   "scripts": {
       "test": "jest"
+  },
+  "babel": {
+      "presets": ["@babel/preset-env"]
   }
 }
