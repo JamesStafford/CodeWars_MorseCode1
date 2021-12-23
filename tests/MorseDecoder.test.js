@@ -24,9 +24,11 @@ describe("For Morse Decoder, ", () => {
         expect(decode("···−−−···")).toBe("SOS")
     });
 
-    /*
-    test("decode parses 'HEY JUDE' in Morse", () => {
-        expect(decode(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE")
+    test("decode parses 'HEY' in Morse", () => {
+        expect(decode("···· · −·−−")).toBe("HEY")
     });
-     */
+
+    test("decode parses 'HEY JUDE' in Morse", () => {
+        expect(decode("···· · −·−−   ·−−− ··− −·· ·")).toBe("HEY JUDE")
+    });
 });

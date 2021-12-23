@@ -4,7 +4,12 @@ export function decode(morseCode) {
     if (!morseCode) {
         return "";
     }
-    return getEnglishForMorse(morseCode);
+
+    const characters = morseCode.split(" ");
+    const result = translateWord(characters);
+
+    return result;
+    // return getEnglishForMorse(morseCode);
 }
 
 export function getEnglishForMorse(morseCharacter) {
@@ -18,4 +23,12 @@ export function getEnglishForMorse(morseCharacter) {
     }
 
     return entry[0];
+}
+
+export function translateWord(morseWordCharacters) {
+    let englishWord = "";
+    morseWordCharacters.forEach(morseCharacter => {
+       englishWord += getEnglishForMorse(morseCharacter);
+    });
+    return englishWord;
 }
