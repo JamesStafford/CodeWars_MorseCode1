@@ -24,6 +24,10 @@ export function decode(morseCode) {
 }
 
 export function getEnglishForMorse(morseCharacter) {
+    if (!morseCharacter) {
+        return "";
+    }
+
     const entry = Object.entries(MORSE_CODE).find(morseTranslation => {
         const localMorseCharacter = morseTranslation[0];
         return morseCharacter === localMorseCharacter;
