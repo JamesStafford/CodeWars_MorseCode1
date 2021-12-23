@@ -5,13 +5,27 @@ export function decode(morseCode) {
         return "";
     }
 
-    const characters = morseCode.split(" ");
-    return translateWord(characters);
+    let englishPhrase = "";
+
+    const morseWords = morseCode.split(/[ ]{2,}/);
+    morseWords.forEach(word => {
+        const characters = word.split(" ");
+        const englishWord = translateWord(characters)
+        if (englishWord) {
+            if (/\S/.test(englishPhrase)) {
+                englishPhrase += ` ${englishWord}`;
+            } else {
+                englishPhrase += englishWord
+            }
+        }
+    })
+
+    return englishPhrase;
 }
 
 export function getEnglishForMorse(morseCharacter) {
-    const entry = Object.entries(MorseCodeAlphabet).find(morseTranslation => {
-        const localMorseCharacter = morseTranslation[1];
+    const entry = Object.entries(MORSE_CODE).find(morseTranslation => {
+        const localMorseCharacter = morseTranslation[0];
         return morseCharacter === localMorseCharacter;
     });
 
@@ -19,7 +33,7 @@ export function getEnglishForMorse(morseCharacter) {
         throw new Error(`Invalid character provided. character: "${morseCharacter}"`);
     }
 
-    return entry[0];
+    return entry[1];
 }
 
 export function translateWord(morseWordCharacters) {
