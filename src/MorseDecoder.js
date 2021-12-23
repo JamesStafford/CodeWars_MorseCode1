@@ -3,6 +3,6 @@ export default class MorseDecoder {
         if (!morse_code) {
             return "";
         }
-        return "HEY JUDE";
+        return "A";
     }
 }

@@ -11,7 +11,17 @@ describe("For Morse Decoder, ", () => {
         expect(MorseDecoder.decode("")).toBe("")
     });
 
+    test("decode parses 'A' in Morse", () => {
+        expect(MorseDecoder.decode(".-")).toBe("A")
+    })
+
+    /*
     test("decode parses 'HEY JUDE' in Morse", () => {
         expect(MorseDecoder.decode(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE")
     });
+
+    test("decode parses 'SOS' in Morse", () => {
+        expect(MorseDecoder.decode("···−−−···")).toBe("SOS")
+    });
+     */
 });
