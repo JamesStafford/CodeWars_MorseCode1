@@ -6,10 +6,7 @@ export function decode(morseCode) {
     }
 
     const characters = morseCode.split(" ");
-    const result = translateWord(characters);
-
-    return result;
-    // return getEnglishForMorse(morseCode);
+    return translateWord(characters);
 }
 
 export function getEnglishForMorse(morseCharacter) {
