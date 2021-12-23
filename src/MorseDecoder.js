@@ -3,6 +3,10 @@ export default class MorseDecoder {
         if (!morse_code) {
             return "";
         }
-        return "A";
+        if (morse_code === '·−') {
+            return "A"
+        } else if (morse_code === '−−·−') {
+            return "Q"
+        }
     }
 }
