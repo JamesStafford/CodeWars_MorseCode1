@@ -1,31 +1,32 @@
-import MorseDecoder from "../src/MorseDecoder";
+import morseCodeAlphabet from "../data/MorseCodeAlphabet";
+import {decode} from "../src/MorseDecoder";
 
 describe("For Morse Decoder, ", () => {
     test("decode does not throw", () => {
         expect(() => {
-            MorseDecoder.decode();
+            decode();
         }).not.toThrow();
     });
 
     test ("decode returns empty string if provided empty input", () => {
-        expect(MorseDecoder.decode("")).toBe("")
+        expect(decode("")).toBe("")
     });
 
-    test("decode parses 'A' in Morse", () => {
-        expect(MorseDecoder.decode("·−")).toBe("A")
-    });
-
-    test("decode parses 'Q' in Morse", () => {
-        expect(MorseDecoder.decode("−−·−")).toBe("Q")
+    Object.entries(morseCodeAlphabet).forEach(morseTranslation => {
+        const englishCharacter = morseTranslation[0];
+        const morseCharacter = morseTranslation[1];
+        test(`decode parses "${morseCharacter}" to "${englishCharacter}"`, () => {
+            expect(decode(morseCharacter)).toBe(englishCharacter);
+        })
     });
 
     /*
     test("decode parses 'HEY JUDE' in Morse", () => {
-        expect(MorseDecoder.decode(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE")
+        expect(decode(".... . -.--   .--- ..- -.. .")).toBe("HEY JUDE")
     });
 
     test("decode parses 'SOS' in Morse", () => {
-        expect(MorseDecoder.decode("···−−−···")).toBe("SOS")
+        expect(decode("···−−−···")).toBe("SOS")
     });
      */
 });
