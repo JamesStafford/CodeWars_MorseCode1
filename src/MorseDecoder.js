@@ -24,12 +24,15 @@ export function decode(morseCode) {
 }
 
 export function getEnglishForMorse(morseCharacter) {
+    const morseIndexInTranslation = 1;
+    const englishIndexInTranslation = 0;
+
     if (!morseCharacter) {
         return "";
     }
 
-    const entry = Object.entries(MORSE_CODE).find(morseTranslation => {
-        const localMorseCharacter = morseTranslation[0];
+    const entry = Object.entries(MorseCodeAlphabet).find(morseTranslation => {
+        const localMorseCharacter = morseTranslation[morseIndexInTranslation];
         return morseCharacter === localMorseCharacter;
     });
 
@@ -37,7 +40,7 @@ export function getEnglishForMorse(morseCharacter) {
         throw new Error(`Invalid character provided. character: "${morseCharacter}"`);
     }
 
-    return entry[1];
+    return entry[englishIndexInTranslation];
 }
 
 export function translateWord(morseWordCharacters) {
