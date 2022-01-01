@@ -24,12 +24,12 @@ export function decode(morseCode) {
 }
 
 export function getEnglishForMorse(morseCharacter) {
-    const morseIndexInTranslation = 1;
-    const englishIndexInTranslation = 0;
-
     if (!morseCharacter) {
         return "";
     }
+
+    const morseIndexInTranslation = 1;
+    const englishIndexInTranslation = 0;
 
     const entry = Object.entries(MorseCodeAlphabet).find(morseTranslation => {
         const localMorseCharacter = morseTranslation[morseIndexInTranslation];

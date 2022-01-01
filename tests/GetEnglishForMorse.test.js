@@ -6,6 +6,10 @@ describe("For GetEnglishForMorse, ", () => {
       expect(() => getEnglishForMorse("·−")).not.toThrow();
    });
 
+   test("GetEnglishForMorse returns empty string if empty string is provided", () => {
+      expect(getEnglishForMorse("")).toBe("");
+   });
+
    test("Provided an english character will cause GetEnglishForMorse to throw", () => {
       expect(() => getEnglishForMorse("A")).toThrowError(`Invalid character provided. character: "A"`);
    })
